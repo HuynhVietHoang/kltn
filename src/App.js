@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
@@ -6,6 +5,7 @@ function App() {
     <div>
       <h1>123456</h1>
         </div>
+
   );
 }
 export default App;
