@@ -2,8 +2,6 @@ import './App.css';
 import { getDatabase,set,ref } from "firebase/database";
 import app from './firebase'
 
-
-
 function App() {
   const database = () => {}
   function writeUserData( name, email) {
@@ -16,9 +14,7 @@ function App() {
     console.log(email)
   }
   return (
-
     <div>
-    
       <h1 className='text-4xl text-red-500'>Nhập liệu firebase</h1>
       <input placeholder='Nhập tên' className="border-4 rounded-2xl border-black"></input>
       <br/>
@@ -28,5 +24,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
