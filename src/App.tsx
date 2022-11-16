@@ -1,7 +1,8 @@
 import './App.css';
 import { getDatabase,set,ref } from "firebase/database";
 import app from './firebase'
-
+import Login from './components/Login';
+import { Link } from 'react-router-dom';
 function App() {
   const database = () => {}
   function writeUserData( name, email) {
@@ -14,6 +15,7 @@ function App() {
     console.log(email)
   }
   return (
+    
     <div>
       <h1 className='text-4xl text-red-500'>Nhập liệu firebase</h1>
       <input placeholder='Nhập tên' className="border-4 rounded-2xl border-black"></input>
@@ -21,6 +23,10 @@ function App() {
       <input placeholder='Nhập tuổi' className="border-4 rounded-2xl border-black"></input>
       <br/>
       <button onClick={()=>  {console.log(app)}} className="bg-sky-700 px-4 py-2 rounded-xl text-white hover:bg-sky-800 sm:px-8 sm:py-3">Push lên firebase</button>
+      <p >
+                        Không có tài khoản?
+                      </p>
+            <Login></Login>
     </div>
   );
 }
