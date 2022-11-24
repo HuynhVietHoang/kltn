@@ -30,6 +30,7 @@ module.exports = {
       black: colors.black,
       white: colors.white,
       chlorophyll: 'rgb(163,185,91)',
+      mint:'rgb(62,180,137)',
       slate: {
         DEFAULT: colors.slate,
         50: "#f8fafc",

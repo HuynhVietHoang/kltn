@@ -2,32 +2,25 @@ import './App.css';
 import { getDatabase,set,ref } from "firebase/database";
 import app from './firebase'
 import Login from './components/Login';
-import { Link } from 'react-router-dom';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import { ProSidebarProvider } from 'react-pro-sidebar';
+import React from 'react';
+import Layout from './Layout/Layout';
+const AdminPages = React.lazy(() => import("./Layout/Layout"));
+
+
 function App() {
-  const database = () => {}
-  function writeUserData( name, email) {
-    const db = getDatabase();
-    set(ref(db), {
-      username: name,
-      email: email,
-      
-    });
-    console.log(email)
-  }
+ 
   return (
     
-    <div>
-      <h1 className='text-4xl text-red-500'>Nhập liệu firebase</h1>
-      <input placeholder='Nhập tên' className="border-4 rounded-2xl border-black"></input>
-      <br/>
-      <input placeholder='Nhập tuổi' className="border-4 rounded-2xl border-black"></input>
-      <br/>
-      <button onClick={()=>  {console.log(app)}} className="bg-sky-700 px-4 py-2 rounded-xl text-white hover:bg-sky-800 sm:px-8 sm:py-3">Push lên firebase</button>
-      <p >
-                        Không có tài khoản?
-                      </p>
-            <Login></Login>
-    </div>
+  //   <BrowserRouter>
+  //   <Routes>
+  //     <Route path="/*" element={<AdminPages></AdminPages>}></Route>
+  //   </Routes>
+  // </BrowserRouter>
+  <Layout></Layout>
+            
+
   );
 }
 export default App;
