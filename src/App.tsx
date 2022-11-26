@@ -12,14 +12,10 @@ const AdminPages = React.lazy(() => import("./Layout/Layout"));
 function App() {
  
   return (
+      <Routes>
+        <Route path="/*" element={<Layout></Layout>}></Route>
+      </Routes>
     
-  //   <BrowserRouter>
-  //   <Routes>
-  //     <Route path="/*" element={<AdminPages></AdminPages>}></Route>
-  //   </Routes>
-  // </BrowserRouter>
-  <Layout></Layout>
-            
 
   );
 }

@@ -16,8 +16,12 @@ function Login() {
     if (snapshot.exists()) {
       Object.entries(snapshot.val()).map(([key, value]: any, i) => {
         console.log(Object.values(value)[0])
-        if(Object.values(value)[0]===password && Object.values(value)[2] === username )          
-              navigate('/SideBar')
+        if(Object.values(value)[0]===password && Object.values(value)[2] === username )      
+        {    
+              localStorage.setItem('jwt',value)
+              navigate('/Isurance')
+              window.location.reload()
+        }
               else
               console.log(Object.values(value))
       })

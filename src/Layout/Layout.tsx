@@ -1,22 +1,30 @@
 import Body from "./Body"
 import SideBar from './SideBar';
+import Header from './Header';
+import { screen } from '@testing-library/react';
+import Footer from './Footer';
 
 function Layout(){
     return (
         <div className="h-screen m-0 font-sans antialiased font-normal text-size-base leading-default bg-gray-50 text-slate-500 section">
-            {/* { */}
-                {/* exceptionRoute.includes(location.pathname.toString().toLowerCase()) ? */}
-                    {/* <Body></Body>  */}
+            {
+              
+                localStorage.getItem('jwt')===null?
+                    <Body></Body> :
                     <>
+                    <div className="flex">
                         <SideBar></SideBar>
                         {/* Right element */}
-                        <div className="ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen rounded-xl transition-all duration-200">
-                            {/* <HeaderAdmin></HeaderAdmin> */}
+                        <div className="w-full ml-5">
+                            <Header></Header>
                             <Body></Body>
-                            {/* <FooterAdmin></FooterAdmin> */}
+                            <Footer></Footer>
                         </div>
+                       
+                    </div>
+                   
                     </>
-             {/* } */}
+            }
         </div>
     )
 }
