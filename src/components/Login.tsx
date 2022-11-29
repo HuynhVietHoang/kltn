@@ -1,24 +1,28 @@
 import { Provider } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate  } from 'react-router-dom';
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 import { getDatabase, ref, child, get } from "firebase/database";
-import app from '../firebase';
+import app, { getFireBase } from '../firebase';
 import logo from './../assets/images/logo.png'
 import Body from './../Layout/Body';
 import { useReducer, useState } from 'react';
+import Cookies from 'universal-cookie';
 
 function Login() {
   const db = getFirestore(app);
+  const cookie = new Cookies()
   const dbRef = ref(getDatabase());
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const btnClick = () => get(child(dbRef, 'account')).then((snapshot) => {
     if (snapshot.exists()) {
       Object.entries(snapshot.val()).map(([key, value]: any, i) => {
-        console.log(Object.values(value)[0])
-        if(Object.values(value)[0]===password && Object.values(value)[2] === username )      
+        if(Object.values(value)[1]===password && Object.values(value)[3] === username )      
         {    
-              localStorage.setItem('jwt',value)
+              localStorage.setItem('accessToken','true')
+              localStorage.setItem('typeUser',Object.values(value)[2]+'')
+              cookie.set('typeUser',Object.values(value)[2]+'')
+              navigate('/Sidebar')
               navigate('/Isurance')
               window.location.reload()
         }
@@ -44,7 +48,7 @@ function Login() {
                 <div className="flex flex-col w-full max-w-full px-3 mx-auto md:flex-0 shrink-0 md:w-6/12 lg:w-5/12 xl:w-4/12 h-full mt-10">
                   <div className="relative flex flex-col min-w-0 break-words bg-transparent border-0 shadow-none rounded-2xl bg-clip-border">
                     <div style={{ margin: '0 auto' }}>
-                      <img src={logo} alt='logo' style={{ height: '150px' }} />
+                      <img src={logo} alt='logo'  style={{ height: '150px' }} />
                     </div>
                     <div className="p-6 pb-0 mb-0 bg-transparent border-b-0 rounded-t-2xl">
                       <h3 className="relative z-10 font-bold text-transparent bg-mint bg-clip-text text-size-22px">Chào mừng quay trở lại</h3>

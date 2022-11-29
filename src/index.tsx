@@ -10,6 +10,7 @@ import { ProSidebarProvider } from 'react-pro-sidebar';
 import Body from './Layout/Body';
 import InsuranceForm from './components/InsuranceForm';
 import { Provider } from 'react-redux';
+import { SendEmail } from './constant/SendEmail';
 
 // const container = document.getElementById("root")!;
 // const root = createRoot(container);

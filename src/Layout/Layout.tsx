@@ -9,7 +9,7 @@ function Layout(){
         <div className="h-screen m-0 font-sans antialiased font-normal text-size-base leading-default bg-gray-50 text-slate-500 section">
             {
               
-                localStorage.getItem('jwt')===null?
+                localStorage.getItem('accessToken')===null?
                     <Body></Body> :
                     <>
                     <div className="flex">
