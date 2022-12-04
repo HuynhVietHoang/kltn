@@ -8,9 +8,11 @@ import Personal from "../components/Personal";
 import Statistical from "../components/Statistical";
 import Layout from "./Layout";
 import { render } from '@testing-library/react';
+import ProductManager from './../components/ProductManager';
+import Cookies from 'universal-cookie';
 
 export default function Body() {
-
+const cookie = new Cookies()
     return (
         <div className='bg-white mx shadow-soft-xl rounded-2 mr-4 min-h-85-screen w-full'>
             <div className='py-2'>
@@ -22,13 +24,15 @@ export default function Body() {
                             <Route path="/Login/*" element={<Navigate to='/Isurance'></Navigate>}></Route>
                             <Route path="/Isurance/*" element={<InsuranceForm />}></Route>
                             <Route path="/Coordinate/*" element={<Coordinate />}></Route>
+                            <Route path="/Product/*" element={<ProductManager />}></Route>
+                            <Route path="/Personal/*" element={<Personal />}></Route>
+                            <Route path="/Statistical/*" element={<Statistical />}></Route>
                             {
-                                localStorage.getItem('typeUser') === 'admin' ?
+                                cookie.get('typeUser') !== 'admin' ?
                                     <Route path="/Employee/*" element={<Employee />} ></Route> :
                                     <Route path="/Employee/*" element={<Navigate to='/Isurance'></Navigate>} ></Route>
                             }
-                            <Route path="/Personal/*" element={<Personal />}></Route>
-                            <Route path="/Statistical/*" element={<Statistical />}></Route>
+
                         </Routes>
                         :
                         <Routes>

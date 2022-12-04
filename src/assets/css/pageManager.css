@@ -1,0 +1,37 @@
+
+.grid-table{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.input{
+    width: 98%;
+    border-bottom: 1px solid gray
+}
+/* .border{
+    border: 1px solid grey;
+} */
+.search{
+    /* background-color: dodgerblue; */
+    padding: 8px;
+    border-radius: 5px;
+    color:white;
+    font-size: 14px;
+    margin: 12px;
+}
+.radio{
+   accent-color: red; 
+}
+
+.hover:hover{
+    --tw-text-opacity: 1;
+    background-color: rgb(203 12 159 / var(--tw-text-opacity)) ;
+}
+.formLogout{
+    display:none;
+}
+.active{
+    display:block;
+}
+.width{
+    width:97%;
+}

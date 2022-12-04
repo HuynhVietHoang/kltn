@@ -20,7 +20,7 @@ function Login() {
         if(Object.values(value)[1]===password && Object.values(value)[3] === username )      
         {    
               localStorage.setItem('accessToken','true')
-              localStorage.setItem('typeUser',Object.values(value)[2]+'')
+              // localStorage.setItem('typeUser',Object.values(value)[2]+'')
               cookie.set('typeUser',Object.values(value)[2]+'')
               navigate('/Sidebar')
               navigate('/Isurance')
@@ -55,18 +55,11 @@ function Login() {
                       <p className="mb-0">Nhập thông tin để đăng nhập</p>
                     </div>
                     <div className="flex-auto p-6">
-                      {/* <form onSubmit={handleSubmit((data: IFormInput) => {
-                        if (data.userName === 'admin' && data.password === "123456") {
-                          navigate('/transaction-management')
-                        } else {
-                          setErrorSignIn(true)
-                        }
-                      })}> */}
+
                       <label className="mb-2 ml-1 font-bold text-size-xs text-slate-700">Tài khoản</label>
                       <div className="mb-4">
                         <input onChange={event => setUsername(event.target.value)} type="text" className="focus:shadow-soft-primary-outline text-size-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow" placeholder='Tài khoản' aria-label="Username" aria-describedby="username-addon"
-                        // {...register("userName")}
-                        // onFocus={onFocusInput}
+
                         />
                         <p className='ml-1 text-size-sm mt-1 text-red-500'>sai tài khoản</p>
                       </div>
@@ -78,8 +71,7 @@ function Login() {
                         <p className='ml-1 text-size-sm mt-1 text-red-500'>sai mật khẩu</p>
                       </div>
                       <div className="min-h-6 mb-0.5 block pl-12">
-                        {/* <Switch className='mt-2 left-0' onChange={handleSwitch} checked={switchState}></Switch> */}
-                        {/* <label className="mb-2 ml-1 font-normal cursor-pointer select-none text-7 text-mint" htmlFor="rememberMe">Ghi nhớ</label> */}
+                       
                         <input id="rememberMe" className="mt-0.54 rounded-10 duration-250 ease-soft-in-out after:rounded-circle after:shadow-soft-2xl after:duration-250 checked:after:translate-x-5.25 h-5-em relative float-left -ml-12 w-10 cursor-pointer appearance-none border border-solid border-gray-200 bg-slate-800/10 bg-none bg-contain bg-left bg-no-repeat align-top transition-all after:absolute after:top-px after:h-4 after:w-4 after:translate-x-px after:bg-white after:content-[''] checked:border-mint checked:bg-mint checked:bg-none checked:bg-right" type="checkbox" />
                         <label className="mb-2 ml-1 font-normal cursor-pointer select-none text-size-sm text-mint" htmlFor="rememberMe">Ghi nhớ</label>
                       </div>

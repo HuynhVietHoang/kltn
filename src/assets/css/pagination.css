@@ -1,0 +1,62 @@
+.navigation-ul {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    list-style-type: none;
+    padding: 0;
+}
+
+.align-bottom:disabled {
+    cursor: no-drop;
+}
+
+.button-pagination {
+    color: rgb(170, 170, 170);
+    background-color: white;
+    font-weight: 500;
+    border: none;
+}
+
+li button.active {
+    color: white;
+    background-color: #007bff;
+    font-weight: 500;
+    border: none;
+}
+
+.button-pagination:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.button-arrow-pagination {
+    color: rgb(170, 170, 170);
+    background-color: white;
+    font-weight: 500;
+    border: none;
+}
+
+.button-arrow-pagination:disabled:hover {
+    cursor: no-drop;
+}
+
+.px-3-pgn {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+.py-1-pgn {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+.leading-5 {
+    line-height: 1.5rem;
+}
+
+.rounded-pgn {
+    border-radius: 0.375rem;
+}
+
+.center-tb {
+    text-align: center;
+}

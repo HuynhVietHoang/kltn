@@ -10,8 +10,6 @@ export default function SideBar() {
   const userType: any = localStorage.getItem('jtw')
   const cookie = new Cookies()
   return (
-
-    // <BrowserRouter>
     <div className="ml-3">
        <i className="absolute top-0 right-0 hidden p-4 opacity-50 cursor-pointer fas fa-times text-slate-400 xl:hidden"></i>
           <a className="block text-center m-0 text-size-sm whitespace-nowrap text-slate-700" href="javascript" target="_blank">
@@ -27,21 +25,19 @@ export default function SideBar() {
               <MenuItem icon={<BsArrowBarRight className="bg-mint  border-8 border-mint rounded-3 text-size-4xl " />} className='font-bold text-size-1xl' routerLink={<NavLink to='/Coordinate' />} > Điều phối</MenuItem>
               <MenuItem icon={<BsBarChart className="bg-mint  border-8 border-mint rounded-3 text-size-4xl " />} className='font-bold text-size-1xl' routerLink={<NavLink to='/Statistical' />}> Thống kê</MenuItem>
               <MenuItem icon={<AiOutlineUser className="bg-mint  border-8 border-mint rounded-3 text-size-4xl " />} className='font-bold text-size-1xl' routerLink={<NavLink to='/Personal' />} disabled={false}> Thông tin cá nhân</MenuItem>
+              <MenuItem icon={<AiOutlineUser className="bg-mint  border-8 border-mint rounded-3 text-size-4xl " />} className='font-bold text-size-1xl' routerLink={<NavLink to='/Product' />} disabled={false}> Linh kiện</MenuItem>
+
               {
-                // location.state==='true'?
                 cookie.get('typeUser') !== 'admin' ?
-                  // <MenuItem icon={<BsFileEarmarkPerson className="bg-mint  border-8 border-mint rounded-3 text-size-4xl " />} className='font-bold text-size-1xl' routerLink={<NavLink to='/Employee' />} disabled={true}> Nhân viên</MenuItem>
                   null
                   :
                   <MenuItem icon={<BsFileEarmarkPerson className="bg-mint  border-8 border-mint rounded-3 text-size-4xl " />} className='font-bold text-size-1xl' routerLink={<NavLink to='/Employee' />} disabled={false}> Nhân viên</MenuItem>
 
               }
-              {/* </Routes> */}
             </>
           }
         </Menu>
       </Sidebar>
     </div>
-    // </BrowserRouter>
   )
 }

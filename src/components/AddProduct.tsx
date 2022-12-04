@@ -80,7 +80,7 @@ export default function AddProduct() {
         <div >
             <div className=" my-2 mx-2 rounded-3 border-2 p-3">
                 <div className='grid place-items-end '>
-                <button onClick={} >{<AiOutlineCloseCircle/>}</button>
+                <button  >{<AiOutlineCloseCircle/>}</button>
                 </div>
                 <div className="flex items-center">
                     
