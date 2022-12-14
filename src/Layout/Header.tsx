@@ -1,9 +1,11 @@
-import { Link, useNavigate } from "react-router-dom"
+import {  useNavigate } from "react-router-dom"
+import Cookies from "universal-cookie"
 
 function Header() {
+  const cookie = new Cookies()
     const navigate =useNavigate()
     const logoutClick = ()=>{
-        localStorage.removeItem('accessToken')
+        cookie.remove('accessToken')
         navigate('/Login')
          window.location.reload()
     }

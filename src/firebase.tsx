@@ -1,9 +1,8 @@
 
 import { initializeApp } from "firebase/app";
 import { getAnalytics} from "firebase/analytics";
-import { child, get, getDatabase, ref } from "firebase/database";
-import { getFirestore } from 'firebase/firestore/lite';
-import { getDownloadURL } from "firebase/storage";
+import { get, getDatabase, ref } from "firebase/database";
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyBodTRQyHFCzsAC0RWKiVtxI8nQAnLGhl8",

@@ -4,33 +4,31 @@ import { useState } from 'react';
 import AddProduct from './AddProduct';
 import EditProduct from './EditProduct';
 import { Modal } from 'antd';
+import { ICustomer } from './../interface/customer.interface';
+import EditCustomer from './EditCustomer';
+import AddCustomer from './AddCustomer';
 
 
-function ProductManager() {
+function Customer() {
   const [showModal, setShowModal] = useState(false);
   const dbRef = ref(getDatabase());
-  const [lstProduct, setLstProduct] = useState<IProduct[]>([])
-  const [productKey, setProductKey] = useState<string[]>([])
+  const [lstCustomer, setlstCustomer] = useState<ICustomer[]>([])
+  const [CustomerKey, setCustomerKey] = useState<string[]>([])
   const [editState, setEditState] = useState(false)
-  const [propp, setPropp] = useState<IProduct>({
-    Name: '',
-    Id: '',
-    NSX: '',
-    BH: 0,
-    Price: 0,
-    SL: 0,
-    Mota: '',
-    img: ''
+  const [propp, setPropp] = useState<ICustomer>({
+    tenkh: '',
+    ngaysinh: '',
+    dc: '',
+    gt: '',
+    sdt: 0,
+    email: '',
   })
   const [propKey, setPropKey] = useState('')
-  get(child(dbRef, 'product')).then((snapshot) => {
+  get(child(dbRef, 'Customer')).then((snapshot) => {
     if (snapshot.exists()) {
-      setLstProduct(Object.values(snapshot.val()))
-      setProductKey(Object.keys(snapshot.val()))
-      for (var i = 0; i < lstProduct.length; i++) {
-        lstProduct[i].Id = i + ''
-
-      }
+        setlstCustomer(Object.values(snapshot.val()))
+        setCustomerKey(Object.keys(snapshot.val()))
+      
     } else {
       console.log("No data available");
     }
@@ -49,14 +47,12 @@ function ProductManager() {
                 <input type="Tìm kiếm" className='border-dashed border-2 border-blue-600 px-3 py-2 hover:scale-102 hover:shadow-soft-xs ' placeholder="Tìm kiếm linh kiện..." ></input>
                 <button onClick={() => {
                   setPropp({
-                    Name: '',
-                    Id: '',
-                    NSX: '',
-                    BH: 0,
-                    Price: 0,
-                    SL: 0,
-                    Mota: '',
-                    img: ''
+                    tenkh: '',
+                    ngaysinh: '',
+                    dc: '',
+                    gt: '',
+                    sdt: 0,
+                    email: '',
                   })
                   setShowModal(true)
 
@@ -67,52 +63,57 @@ function ProductManager() {
               <thead className="bg-white border-b">
                 <tr>
                
+        
                   <th scope="col" className="text-md font-bold text-green-600 px-6 py-4 text-left">
-                    Ảnh
+                    Tên khách hàng
                   </th>
                   <th scope="col" className="text-md font-bold text-green-600 px-6 py-4 text-left">
-                    Tên linh kiện
+                    Địa chỉ
                   </th>
                   <th scope="col" className="text-md font-bold text-green-600 px-6 py-4 text-left">
-                    Nhà sản xuất
+                    Ngày sinh
                   </th>
                   <th scope="col" className="text-md font-bold text-green-600 px-6 py-4 text-left">
-                    Số lượng
+                   Email
                   </th>
                   <th scope="col" className="text-md font-bold text-green-600 px-6 py-4 text-left">
-                    Thời gian bảo hành
+                    Số điện thoại
                   </th>
                   <th scope="col" className="text-md font-bold text-green-600 px-6 py-4 text-left">
-                    Thao tác
+                    Giới tính
                   </th>
                 </tr>
               </thead>
               <tbody>
-                {lstProduct.map((dt, index) =>
+                {lstCustomer.map((dt, index) =>
 
-                  <tr id={dt.Id} key={index} className="bg-gray-100 border-b">                    
+                  <tr  key={index} className="bg-gray-100 border-b">                    
+                 
                     <td className="text-md text-violet-600 font-light px-6 py-4 whitespace-nowrap">
-                      <img className="h-14 w-14" src={dt.img}></img>
+                      {dt.tenkh}
                     </td>
                     <td className="text-md text-violet-600 font-light px-6 py-4 whitespace-nowrap">
-                      {dt.Name}
+                      {dt.dc}
                     </td>
                     <td className="text-md text-violet-600 font-light px-6 py-4 whitespace-nowrap">
-                      {dt.NSX}
+                      {dt.ngaysinh}
                     </td>
                     <td className="text-md text-violet-600 font-light px-6 py-4 whitespace-nowrap">
-                      {dt.SL}
+                      {dt.email}
                     </td>
                     <td className="text-md text-violet-600 font-light px-6 py-4 whitespace-nowrap">
-                      {dt.BH}
+                      {dt.sdt}
+                    </td>
+                    <td className="text-md text-violet-600 font-light px-6 py-4 whitespace-nowrap">
+                      {dt.gt}
                     </td>
                     <td className="grid place-items-center   text-violet-600 font-light   ">
                       <button onClick={() => {
                         setEditState(true)
-                        setPropp(lstProduct[index])
-                        setPropKey(productKey[index])
+                        setPropp(lstCustomer[index])
+                        setPropKey(CustomerKey[index])
                       }} className="bg-mint text-white uppercase hover:scale-102 hover:shadow-soft-xs active:opacity-85 border-2 rounded-xl px-4 py-2 justify-center items-center text-center text-size-sm">SỬA</button>
-                      <button onClick={() => remove(child(dbRef, 'product/' + productKey[index]))} className="bg-mint text-white uppercase hover:scale-102 hover:shadow-soft-xs active:opacity-85 border-2 rounded-xl px-4 py-2 justify-center items-center text-center text-size-sm">XÓA</button>
+                      <button onClick={() => remove(child(dbRef, 'Customer/' + CustomerKey[index]))} className="bg-mint text-white uppercase hover:scale-102 hover:shadow-soft-xs active:opacity-85 border-2 rounded-xl px-4 py-2 justify-center items-center text-center text-size-sm">XÓA</button>
                     </td>
                   </tr>
                 )}
@@ -122,12 +123,12 @@ function ProductManager() {
         </div>
       </div>
       <Modal destroyOnClose={true}  footer={null} centered open={editState} onCancel={() => setEditState(false)}>
-        <EditProduct myProduct={propp} keyProduct={propKey} />
+        <EditCustomer myCustomer={propp} keyCustomer={propKey} />
       </Modal>
-      <Modal destroyOnClose={true}  footer={null} centered open={showModal} onCancel={() => setShowModal(false)}>
-        <AddProduct ></AddProduct>
+      <Modal destroyOnClose={true}  footer={null} width={1000} centered open={showModal} onCancel={() => setShowModal(false)}>
+        <AddCustomer  ></AddCustomer>
       </Modal>
     </div>
   )
 }
-export default ProductManager
+export default Customer
