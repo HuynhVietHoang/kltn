@@ -10,6 +10,7 @@ import AddCustomer from './AddCustomer';
 import { IHD } from './../interface/hd.interface';
 import { IHDKH } from './../interface/hdkh.interface';
 import * as moment from 'moment'
+import AddHD from './AddHD';
 
 function LstBanHang() {
     
@@ -149,7 +150,7 @@ function LstBanHang() {
                 {/* <EditCustomer myCustomer={propp} keyCustomer={propKey} /> */}
             </Modal>
             <Modal destroyOnClose={true} footer={null} width={1000} centered open={showModal} onCancel={() => setShowModal(false)}>
-                <AddCustomer></AddCustomer>
+                <AddHD></AddHD>
             </Modal>
         </div>
     )
