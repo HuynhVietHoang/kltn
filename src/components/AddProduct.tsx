@@ -53,7 +53,7 @@ import { Modal } from 'antd';
                
             })
         }).catch((error) => console.log(error.message));
-        console.log('Fuck!');
+        console.log('Done!');
     }
     const pushDB = () => {
         push(dbRef(db, 'product/'), product);

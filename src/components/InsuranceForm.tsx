@@ -76,13 +76,13 @@ export default function InsuranceForm() {
           <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
             <div className="px-4 py-5 flex-auto">
               <div className="tab-content tab-space">
-                <div className={openTab === 1 ? "block" : "hidden"} id="link1">
+                <div key={1} className={openTab === 1 ? "block" : "hidden"} id="link1">
                  <ListInsurance/>
                 </div>
-                <div className={openTab === 2 ? "block" : "hidden"} id="link2">
+                <div key={2} className={openTab === 2 ? "block" : "hidden"} id="link2">
                 <LstBanHang/>
                 </div>
-                <div className={openTab === 3 ? "block" : "hidden"} id="link3">
+                <div key={3} className={openTab === 3 ? "block" : "hidden"} id="link3">
                 <Client2/>
                 </div>
               </div>

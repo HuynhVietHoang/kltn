@@ -41,7 +41,7 @@ function AddEmployee() {
                 setEmployee(updatedValue)                               
             })
         }).catch((error) => console.log(error.message));
-        console.log('Fuck!');
+        console.log('Done!');
     }
     const pushDB = () => {
         push(dbRef(db, 'Employee/'), employee);

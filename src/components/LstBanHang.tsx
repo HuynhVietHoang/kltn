@@ -25,10 +25,10 @@ function LstBanHang() {
     const [khKey1, setKHKey1] = useState<string[]>([])
     var d = new Date(0)
     var a = 123
-    const [propp, setPropp] = useState<IHD>({
-        makh: '',
-        ngaylap: 0
-    })
+    // const [propp, setPropp] = useState<IHD>({
+    //     makh: '',
+    //     ngaylap: 0
+    // })
     const [propKey, setPropKey] = useState('')
     get(child(dbRef, 'HD')).then((snapshot) => {
         if (snapshot.exists()) {
@@ -62,10 +62,10 @@ function LstBanHang() {
                             <div className='input-group '>
                                 <input type="Tìm kiếm" className='border-dashed border-2 border-blue-600 px-3 py-2 hover:scale-102 hover:shadow-soft-xs ' placeholder="Tìm kiếm linh kiện..." ></input>
                                 <button onClick={() => {
-                                    setPropp({
-                                        makh: '',
-                                        ngaylap: 0
-                                    })
+                                    // setPropp({
+                                    //     makh: '',
+                                    //     ngaylap: 0
+                                    // })
                                     setShowModal(true)
 
                                 }} className="bg-mint hover:bg-blue-700 text-white font-bold py-2 px-2 ml-6  rounded-full">THÊM LINH KIỆN</button>
@@ -112,19 +112,19 @@ function LstBanHang() {
                                         <td className="text-md text-violet-600 font-light px-6 py-4 whitespace-nowrap">
                                             {lstKH[indexx].tenkh}
                                         </td>                                                                                                                               
-                                        <td className="text-md  text-violet-600 font-light px-6 py-4 whitespace-nowrap">                                            
+                                        <td  className="text-md  text-violet-600 font-light px-6 py-4 whitespace-nowrap">                                            
                                             { (new Date(lstHD[index].ngaylap)+'').substring(0,16)}
                                         </td>
-                                        <td className="text-md text-violet-600 font-light px-6 py-4 whitespace-nowrap">
+                                        <td  className="text-md text-violet-600 font-light px-6 py-4 whitespace-nowrap">
                                             {lstKH[indexx].email}
                                         </td>
-                                        <td className="text-md text-violet-600 font-light px-6 py-4 whitespace-nowrap">
+                                        <td   className="text-md text-violet-600 font-light px-6 py-4 whitespace-nowrap">
                                             {lstKH[indexx].sdt}
                                         </td>
-                                        <td className="text-md text-violet-600 font-light px-6 py-4 whitespace-nowrap">
+                                        <td  className="text-md text-violet-600 font-light px-6 py-4 whitespace-nowrap">
                                             {lstKH[indexx].gt}
                                         </td>
-                                        <td className="grid place-items-center   text-violet-600 font-light   ">
+                                        <td   className="grid place-items-center   text-violet-600 font-light   ">
                                             
                                             <button  className="bg-mint text-white uppercase hover:scale-102 hover:shadow-soft-xs active:opacity-85 border-2 rounded-xl px-4 py-2 justify-center items-center text-center text-size-sm">XÓA</button>
                                                     {/* <button onClick={() => {

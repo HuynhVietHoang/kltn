@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import app from '../firebase';
 import { IProduct } from './../interface/product.interface';
-import { getDatabase, push, ref as dbRef, set, update } from "firebase/database";
+import { getDatabase, ref as dbRef, update } from "firebase/database";
 
 interface IMyProps {
     myProduct: IProduct,

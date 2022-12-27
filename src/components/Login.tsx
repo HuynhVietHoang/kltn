@@ -14,6 +14,10 @@ function Login() {
   const dbRef = ref(getDatabase());
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const handleSubmit = event => {
+    event.preventDefault();
+    btnClick()
+  };
   const btnClick = () => get(child(dbRef, 'account')).then((snapshot) => {
     if (snapshot.exists()) {
       Object.entries(snapshot.val()).map(([key, value]: any, i) => {
@@ -33,6 +37,7 @@ function Login() {
   }).catch((error) => {
     console.error(error);
   });
+  
   const navigate = useNavigate()
   return (
     <div>
@@ -69,7 +74,9 @@ function Login() {
                         <label className="mb-2 ml-1 font-normal cursor-pointer select-none text-size-sm text-mint" htmlFor="rememberMe">Ghi nhớ</label>
                       </div>
                       <div className="text-center">
-                        <button onClick={btnClick} className="inline-block w-full px-6 py-3 mt-6 mb-0 font-bold text-center text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer shadow-soft-md bg-x-25 bg-150 leading-pro text-size-xs ease-soft-in tracking-tight-soft bg-mint hover:scale-102 hover:shadow-soft-xs active:opacity-85">Đăng nhập</button>
+                        <button
+                         
+                          onClick={handleSubmit} className="inline-block w-full px-6 py-3 mt-6 mb-0 font-bold text-center text-white uppercase align-middle transition-all border-0 rounded-lg cursor-pointer shadow-soft-md bg-x-25 bg-150 leading-pro text-size-xs ease-soft-in tracking-tight-soft bg-mint hover:scale-102 hover:shadow-soft-xs active:opacity-85">Đăng nhập</button>
                       </div>
                       {/* </form> */}
                     </div>
